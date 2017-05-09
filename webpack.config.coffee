@@ -4,6 +4,7 @@ port= 30000
 module.exports=
   entry: [
     "./index.coffee"
+    "./index.sass"
     "webpack-dev-server/client?http://#{host}:#{port}"
   ]
   output: filename: "bundled/index.js", path: path.resolve( __dirname,"devServer"), publicPath: "http://#{host}:#{port}/assets/"
@@ -15,10 +16,16 @@ module.exports=
       coffee=
         test: /\.coffee$/
         use: ["coffee-loader"]
+      sass=
+        test: /\.sass$/
+        use: ["style-loader","css-loader","sass-loader"]
     ]
 
   plugins: [
     new (require "html-webpack-plugin")
+      template: "index.html.pug"
+      filename: "index.html"
+      inject: "head"
   ]
 
   devServer:
