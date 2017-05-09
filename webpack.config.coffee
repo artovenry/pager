@@ -1,5 +1,5 @@
 path= require "path"
-host= "192.168.1.104"
+host= "localhost"
 port= 30000
 module.exports=
   entry: [
@@ -7,10 +7,10 @@ module.exports=
     "./index.sass"
     "webpack-dev-server/client?http://#{host}:#{port}"
   ]
-  output: filename: "bundled/index.js", path: path.resolve( __dirname,"devServer"), publicPath: "http://#{host}:#{port}/assets/"
+  output: filename: "index.js", path: path.resolve( __dirname,"bundled"), publicPath: "http://#{host}:#{port}/assets/"
   module:
     rules:[
-      pug= 
+      pug=
         test: /\.pug$/
         use: ["pug-loader"]
       coffee=
@@ -29,6 +29,6 @@ module.exports=
   ]
 
   devServer:
-    contentBase: path.join __dirname, "devServer"
-    host: host, port: port, quiet: off, noInfo: off, stats:{assets: off, colors: on, version: off, hash: off, timings: off, chunks: off, chunkModules: off}
+    contentBase: path.join __dirname, "bundled"
+    host: host, port: port, quiet: off, noInfo: off, stats:off
   devtool: "source-map"
