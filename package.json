@@ -1,0 +1,30 @@
+{
+  "name": "pager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server",
+    "test": "karma start",
+    "bundle": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/artovenry/pager.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/artovenry/pager/issues"
+  },
+  "homepage": "https://github.com/artovenry/pager#readme",
+  "devDependencies": {
+    "coffee-loader": "^0.7.3",
+    "coffee-script": "^1.12.5",
+    "html-webpack-plugin": "^2.28.0",
+    "pug": "^2.0.0-rc.1",
+    "pug-loader": "^2.3.0",
+    "webpack": "^2.5.1",
+    "webpack-dev-server": "^2.4.5"
+  }
+}
