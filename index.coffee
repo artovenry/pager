@@ -15,9 +15,7 @@ class Article extends Backbone.Model
     fetch: (method, model, opts)->
       @page++;
       super
-        timeout: TIMEOUT, add: yes, remove: no, merge: no,
-        success: (col,resp)=>
-          @filled= @length > resp.maxLength
+        timeout: TIMEOUT, add: yes, remove: no, merge: no
     sync: (method, model, opts)=>
       MAX= 2
       jqxhr= $.Deferred()
@@ -56,7 +54,8 @@ new class Pager extends Backbone.View
     #@autoKickWithScrolling()
     @listenTo @collection, "add", (model)=>
       @$el.before model.get "html"
-      @stopListening() if @collection.filled
+    @listenTo @collection, "sync", (model, resp)=>
+      @stopListening() if @collection.length is resp.maxLength
     @listenTo @collection, "error", (col,resp)=>
       @stopListening() unless resp.statusText.match /abort/
     @listenTo @collection, "all", (event)=>@toggle event
