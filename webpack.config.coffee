@@ -1,5 +1,5 @@
 path= require "path"
-host= "localhost"
+host= "192.168.1.104"
 port= 30000
 module.exports=
   entry: [
