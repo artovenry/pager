@@ -64,5 +64,6 @@ autoKickWithScrolling: ->
   , THROTTLE_RATE, {trailing: on, leading: off}
 
 
-pager= new (require "./pager.coffee") limit: 2
-pager.col.sync= timeoutTestSync # DEV
+# pager= new (require "./pager.coffee") limit: 2
+# pager.col.sync= timeoutTestSync # DEV
+require "./mockXhr.coffee"
