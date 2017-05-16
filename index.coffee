@@ -7,7 +7,6 @@ testSync= (method, model, opts)->
     opts.errorThrown = errorThrown
     if error then error.call opts.context, xhr, textStatus, errorThrown
 
-
   model.trigger "request", model, df, opts
   timeId= _.delay =>
     resp=
@@ -64,6 +63,6 @@ autoKickWithScrolling: ->
   , THROTTLE_RATE, {trailing: on, leading: off}
 
 
-# pager= new (require "./pager.coffee") limit: 2
+pager= new (require "./pager.coffee") url: "http://192.168.1.2:3002/mockServer.php"
 # pager.col.sync= timeoutTestSync # DEV
-require "./mockXhr.coffee"
+# require "./mockXhr.coffee"
