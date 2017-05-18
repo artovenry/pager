@@ -10,6 +10,8 @@ html(lang="ja")
     script(src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js")
     script(src="https://use.fontawesome.com/84e8bde5fc.js")
     link(rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css")
+    if ds= webpackConfig.devServer
+      script(src="http://#{ds.host}:#{ds.port}/webpack-dev-server.js")
   body
     .container
       .page-header

@@ -25,7 +25,6 @@ class Collection extends Backbone.Collection
       else if opts.errorThrown  is  "Not Found"then @trigger "error:notfound"
       else                                          @trigger "error:error"
  
-
 module.exports= class extends Backbone.View
   className: CLASSNAME
   initialize: (opts={})->
@@ -41,7 +40,7 @@ module.exports= class extends Backbone.View
 
   events: "click": ->
     @xhr= @col.fetch() unless @xhr?.state() is "pending" or @xhr?.state() is "rejected"
-      
+
   render: (event)->
     if event.match /request/
       @$el

@@ -2,7 +2,7 @@
   "name": "pager",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.min.js",
   "scripts": {
     "start": "webpack-dev-server",
     "bundle": "webpack"
@@ -27,6 +27,7 @@
     "pug-loader": "^2.3.0",
     "sass-loader": "^6.0.3",
     "style-loader": "^0.17.0",
+    "uglifyjs-webpack-plugin": "^0.4.3",
     "webpack": "^2.5.1",
     "webpack-dev-server": "^2.4.5"
   }
