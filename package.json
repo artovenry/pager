@@ -5,7 +5,8 @@
   "main": "dist/index.min.js",
   "scripts": {
     "start": "webpack-dev-server",
-    "bundle": "webpack"
+    "bundle": "webpack",
+    "bundle:production": "cross-env NODE_ENV=production webpack"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
   "devDependencies": {
     "coffee-loader": "^0.7.3",
     "coffee-script": "^1.12.5",
+    "cross-env": "^5.0.0",
     "css-loader": "^0.28.1",
     "html-webpack-plugin": "^2.28.0",
     "node-sass": "^4.5.2",
