@@ -6,7 +6,6 @@ STATE=
   "timeout"       : "timeout"
   "notfound"      : "notfound"
 CLASSNAME= STATE["off"]
-TARGET= ".archive"
 TIMEOUT= 10000
 LIMIT= 5
 
@@ -28,12 +27,10 @@ class Collection extends Backbone.Collection
 module.exports= class extends Backbone.View
   className: CLASSNAME
   initialize: (opts={})->
-    @target?= opts.target ? TARGET
     @state?= opts.state ? STATE
     @col= new Collection null, timeout: opts.timeout ? TIMEOUT, limit: opts.limit ? LIMIT
     @col.url= opts.url
-    $ =>@$el.appendTo @target
-    @listenTo @col, "add",                   (model)=> @$el.before model.html()
+    @listenTo @col, "add",                   (model)=> @trigger "append", model
     @listenTo @col, "finished",              =>@stopListening(); @$el.off()
     @listenTo @col, "error",                 =>@stopListening(); @$el.off()
     @listenTo @col, "all",                   @render
